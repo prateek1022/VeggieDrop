@@ -4,7 +4,7 @@ import { ChevronRightIcon } from 'react-native-heroicons/solid';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {SelectAddress} from '../Address/SelectAddress';
 
-export const NicheWalaButton = ({ screenWidth, show, setShow }) => {
+export const NicheWalaButton = ({ screenWidth }) => {
   const [isBottomSheetVisible, setBottomSheetVisible] = useState(false);
   return (
     <SafeAreaView
@@ -16,7 +16,7 @@ export const NicheWalaButton = ({ screenWidth, show, setShow }) => {
         zIndex: 1,
       //  borderTopWidth: 1, // Grey separator line
        // borderTopColor: '#ddd', // Light grey color
-        paddingBottom: 0, // Extra padding to match the UI
+        paddingBottom: 50, // Extra padding to match the UI
       }}>
       
       {/* Grey separator above the button

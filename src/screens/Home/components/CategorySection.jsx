@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, Dimensions} from 'react-native';
+import {View, Text, TouchableOpacity, Dimensions,Alert,ToastAndroid} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Image} from 'react-native';
 import {CategoryData} from '../../../constants/CategoryData';
@@ -11,26 +11,34 @@ export const CategorySection = () => {
   const screenWidth = Dimensions.get('screen').width;
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  
+
   async function fetchCategories() {
-    setLoading(true);
     try {
+      setLoading(true);
+  
       const res = await axiosInstance.get('/get/categories');
-      setLoading(false); 
-      console.log("category was here");
-      
-      //console.log(JSON.stringify(res,null,2));
-      setData(res?.data);
+  
+      if (res?.data) {
+        setData(res.data);
+      } else {
+        Alert.alert("Error", "Received an empty response from the server.");
+      } 
     } catch (error) {
+      console.error("Fetch Categories Error:", error);
+      
+      Alert.alert(
+        "Network Error",
+        error.response?.data?.message || "Failed to fetch categories. Please try again."
+      );
+    } finally {
       setLoading(false);
-      console.log(error +" mmm");
-      throw new error(error);
     }
   }
-
+  
   useEffect(() => {
     fetchCategories();
   }, []);
+  
 
   const navigation = useNavigation();
   return (

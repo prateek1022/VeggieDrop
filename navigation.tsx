@@ -14,4 +14,5 @@ export type RootStackParamList = {
     YourOrders: undefined;
     Wishlist: undefined;
     Search: undefined;
+    OrderSummary: undefined;
   };

@@ -19,6 +19,7 @@ import { Checkout } from './src/screens/Checkout/Checkout';
 import { AddAddress } from './src/screens/Address/AddAddress';
 import { DeliveryScreen } from './src/screens/Delivery/DeliveryScreen';
 import { Profile } from './src/screens/Profile/Profile';
+import { OrderSummary } from './src/screens/OrderSummary/OrderSummary';
 import { Single_product } from './src/screens/Single_product/Single_product';
 import { SubscriptionPlanScreen } from './src/screens/SubscriptionPlanScreen/SubscriptionPlanScreen';
 import { YourOrders } from './src/screens/YourOrders/YourOrders';
@@ -91,6 +92,7 @@ function App(): JSX.Element {
             <Stack.Screen name="OtpEntry" component={OtpEntry} />
             <Stack.Screen name="YourOrders" component={YourOrders} />
             <Stack.Screen name="Wishlist" component={Wishlist} />
+            <Stack.Screen name="OrderSummary" component={OrderSummary} />
             <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
           </Stack.Navigator>
         </NavigationContainer>
